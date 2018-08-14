@@ -6,28 +6,32 @@ namespace ConsoleApp24
 {
     class Calculator
     {
-        public int Add(int a, int b)
+        public int Add(params int[] numbers)
         {
-            return a + b;
+            var sum = 0;
+            foreach (var number in numbers)
+            {
+                sum += number;
+            }
+
+            return sum;
         }
 
-        public int Subtract(int a, int b)
-        {
-            return a - b;
-        }
+        public int Subtract(int minuend, int subtrahend) => minuend - subtrahend;
 
         public int Multiply(int a, int b)
         {
             return a * b;
         }
 
-        public int Divide(int a, int b)
+        public double Divide(int dividend, int divisor)
         {
-            if(b == 0)
+            if (divisor == 0)
             {
                 return 0;
             }
-            return a / b;
+
+            return (double)dividend / divisor;
         }
 
 
